@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATSApplication.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,11 @@ namespace ATSApplication.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly ILoginService _loginService;
+        public LoginController(ILoginService loginService)
+        {
+            _loginService = loginService;
+        }
         // GET: Login
         public ActionResult Index()
         {
@@ -20,10 +26,10 @@ namespace ATSApplication.Controllers
             var user_name = fc["user"];
             var password = fc["password"];
 
-            var user = ""; // _loginService.ValidateUser(user_name, password);
+            var user = _loginService.ValidateUser(user_name, password);
             if (user != null)
             {
-                Session["User_Id"] = 1; //user.ID;
+                Session["User_Id"] = user.ID; //user.ID;
 
                 return RedirectToAction("Index", "Dashboard");
             }

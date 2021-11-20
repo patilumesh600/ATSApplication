@@ -123,3 +123,8 @@ D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\obj\Debug\ATSApplicatio
 D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\obj\Debug\ATSApplication.csproj.CopyComplete
 D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\obj\Debug\ATSApplication.dll
 D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\obj\Debug\ATSApplication.pdb
+D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\obj\Debug\ATSApplication.csprojAssemblyReference.cache
+D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\bin\EntityFramework.dll
+D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\bin\EntityFramework.SqlServer.dll
+D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\bin\EntityFramework.xml
+D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\bin\EntityFramework.SqlServer.xml
