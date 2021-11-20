@@ -247,7 +247,6 @@
                 let expirydate = $("#expirydate").find("input").val();
                 let serviceDuedate = $("#serviceDuedate").find("input").val();
 
-                debugger;
                 let assetDetails = {
                     Type: assetType,
                     Name: name,
@@ -281,11 +280,13 @@
                     data: fileData,                   
                     success: function (result) {
 
-                    if (result.Status == 1) {
-                        let tableList = result.list;
-
-                        alert('Sucess');
-                                          
+                    if (result.Status == 1) {                       
+                        $(document).Toasts('create', {
+                            class: 'bg-success',
+                            title: 'Success',
+                            subtitle: '',
+                            body: result.SuccessMessage
+                        })
                     }
                     if (result.Status == 0) {
                         let ErrorMessage = result.Error;

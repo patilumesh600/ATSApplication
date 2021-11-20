@@ -22,7 +22,8 @@ namespace ATSApplication.Controllers
         // GET: Asset
         public ActionResult Index()
         {
-           ViewBag.list =  _assetService.Delete(1);
+            //ViewBag.list =  _assetService.Delete(1);
+            //ViewBag.list = _assetService.GetAll();
             return View();
         }
         public ActionResult Index2()
@@ -85,6 +86,14 @@ namespace ATSApplication.Controllers
                 //return jsonResult;
             }
             return View();
+        }
+
+        public JsonResult List()
+        {
+            var result = _assetService.GetAll();
+            var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }
