@@ -21,7 +21,8 @@ namespace ATSApplication.Controllers
         // GET: Asset
         public ActionResult Index()
         {
-           ViewBag.list =  _assetService.Delete(1);
+            //ViewBag.list =  _assetService.Delete(1);
+            ViewBag.list = _assetService.GetAll();
             return View();
         }
         public ActionResult Index2()
