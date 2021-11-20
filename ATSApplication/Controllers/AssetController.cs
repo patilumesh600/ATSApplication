@@ -1,4 +1,6 @@
 ﻿using ATSApplication.Authorised;
+using ATSApplication.Common;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +21,56 @@ namespace ATSApplication.Controllers
         {
             return View();
         }
+     
         public ActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult CreateAsset()
+        {
+            var inputProduct_VM = JObject.Parse(Request["AssetDetails"]);
+
+            //Product_VM product_VM = new Product_VM();
+            //product_VM = inputProduct_VM.ToObject<Product_VM>();
+            string fileNameWithPath = null;
+            // JObject uploadResult = UploadProductImage(Request);
+            if (Request.Files.Count > 0)
+            {
+                byte[] fileData = null;
+                string fileName = "";
+                //  Get all files from Request object  
+                HttpFileCollectionBase files = Request.Files;
+                for (int i = 0; i < files.Count; i++)
+                {
+                    HttpPostedFileBase file = files[i];
+                    // Checking for Internet Explorer  
+                    if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+                    {
+                        string[] testfiles = file.FileName.Split(new char[] { '\\' });
+                        fileName = testfiles[testfiles.Length - 1];
+                    }
+                    else
+                    {
+                        fileName = file.FileName;
+                    }
+                    using (var binaryReader = new System.IO.BinaryReader(file.InputStream))
+                    {
+                        fileData = binaryReader.ReadBytes(file.ContentLength);
+                    }
+                    //  Get the complete folder path and store the file inside it.
+                    fileName = GenerateUniqueID.GetTimeStamps() + "_" + fileName;
+                    fileNameWithPath = System.IO.Path.Combine(Server.MapPath("~/Content/DeviceImages/"), fileName);
+                    file.SaveAs(fileNameWithPath);
+                }
+
+                String strBase64Image = Convert.ToBase64String(fileData);
+                System.IO.File.WriteAllBytes(fileNameWithPath, fileData);
+                //product_VM.ProductImage = strBase64Image;
+                //product_VM.ProductImageName = fileName;
+            }
             return View();
         }
     }

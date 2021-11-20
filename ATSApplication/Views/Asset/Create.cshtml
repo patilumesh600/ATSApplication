@@ -19,7 +19,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <style>
+        errorColor {
+            color: #c53030;
+            font-weight: 500 !important;
+        }
+    </style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -59,51 +64,107 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="../../index3.html" method="post">
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Name" name="name">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class=""></span>
+                                    <form action="#" method="post">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="AssetType">Assset Type</label>
+                                                        <select class="form-control" id="ddlAssetType">
+                                                            <option value="">Select</option>
+                                                            <option value="Laptop">Laptop</option>
+                                                            <option value="Computer">Computer</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="assetName">Name</label>
+                                                        <input type="text" class="form-control" id="assetName" placeholder="Assset Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="assetName">Serial Number</label>
+                                                        <input type="text" class="form-control" id="serialNumber" placeholder="Serial Number">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Purchase Date:</label>
+                                                        <div class="input-group date" id="purchasedate" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" data-target="#purchasedate" />
+                                                            <div class="input-group-append" data-target="#purchasedate" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Insurance Date:</label>
+                                                        <div class="input-group date" id="insurancedate" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" data-target="#insurancedate" />
+                                                            <div class="input-group-append" data-target="#insurancedate" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="deviceImage">Device Image</label>
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="deviceImage">
+                                                                <label class="custom-file-label" for="deviceImage">Choose Device Image file</label>
+                                                            </div>
+                                                            @*<div class="input-group-append">
+                                                                <span class="input-group-text">Upload</span>
+                                                            </div>*@
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="modelName">Model Name</label>
+                                                        <input type="text" class="form-control" id="modelName" placeholder="Model Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="companyName">Company Name</label>
+                                                        <input type="text" class="form-control" id="companyName" placeholder="Company Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="modelNumber">Model Number</label>
+                                                        <input type="text" class="form-control" id="modelNumber" placeholder="Model Number">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Expiry Date:</label>
+                                                        <div class="input-group date" id="expirydate" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" data-target="#expirydate" />
+                                                            <div class="input-group-append" data-target="#expirydate" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Service Due Date:</label>
+                                                        <div class="input-group date" id="serviceDuedate" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" data-target="#serviceDuedate" />
+                                                            <div class="input-group-append" data-target="#serviceDuedate" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Mobile number" name="mobileNo">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class=""></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Email address" name="emailAddress">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-envelope"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input type="password" class="form-control" placeholder="Password" name="password">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-lock"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                            </div>
-                                            <!-- /.col -->
-                                            <div class="col-4">
-                                                <button type="submit" class="btn btn-primary btn-block">Create</button>
-                                            </div>
-                                            <!-- /.col -->
+
+                                        <div class="card-footer">
+                                            <button type="submit" id="btnCreateAsset" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-default">Cancel</button>
                                         </div>
                                     </form>
                                 </div>
-                                
+
                             </div>
                             <!-- /.card -->
                         </div>
@@ -123,10 +184,133 @@
 
     </div>
 
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
     <script type="text/javascript">
         window.onload = function () {
             menuItemActive('assets', 'createList');
-        };      
+
+            bsCustomFileInput.init();
+            //Date range picker
+            $('#purchasedate,#expirydate,#insurancedate,#serviceDuedate').datetimepicker({
+                //format: 'L',
+                format: 'DD/MM/YYYY'
+            });
+        };
+
+        function gettoken() {
+            var token = '@Html.AntiForgeryToken()';
+            token = $(token).val();
+            return token;
+        }
+
+        function ValidateAllEmptyConditonForText(inputControl) {
+            if (inputControl == "" || inputControl == undefined || inputControl == null || inputControl == '') {
+                return true
+            }
+            else {
+                return false;
+            }
+        }
+
+        function ValidateCreateAsset() {
+            let isValid = true;
+            let Name = $("#Name").val();
+            if (ValidateAllEmptyConditonForText(Name) == true) {
+                $("#error_Name").show();
+                isValid = false;
+            } else {
+                $("#error_Name").hide();
+            }
+            
+            let Status = $('input[name="rdo_status"]:checked').val();
+
+            if (ValidateAllEmptyConditonForText(Status) == true) {
+                $("#error_rdo_StatusClass").show();
+                isValid = false;
+            }
+            return isValid;
+        }
+
+        function createAsset() {
+            let isValid = true;
+            // let isValid = ValidateCreateAsset();
+            if (isValid) {
+                let assetType = $("#ddlAssetType").val();
+                let name = $("#assetName").val();
+                let serialNumber = $("#serialNumber").val();
+                let purchasedate = $("#purchasedate").find("input").val();
+                let insurancedate = $("#insurancedate").find("input").val();
+                let modelName = $("#modelName").val();
+                let companyName = $("#companyName").val();
+                let modelNumber = $("#modelNumber").val();
+                let expirydate = $("#expirydate").find("input").val();
+                let serviceDuedate = $("#serviceDuedate").find("input").val();
+
+                debugger;
+                let assetDetails = {
+                    AssetType: assetType,
+                    AssetName: name,
+                    SerialNumber: serialNumber,
+                    Purchasedate: purchasedate,
+                    Insurancedate: insurancedate,
+                    ModelName: modelName,
+                    CompanyName: companyName,
+                    ModelNumber: modelNumber,
+                    Expirydate: expirydate,
+                    ServiceDuedate: serviceDuedate
+                };
+
+                var fileUpload = $("#deviceImage").get(0);
+                var files = fileUpload.files;
+                // Create FormData object  
+                var fileData = new FormData();
+                // Looping over all files and add it to FormData object  
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                // Adding one more key to FormData object  
+                fileData.append('AssetDetails', JSON.stringify(assetDetails));
+                // formData.append('__RequestVerificationToken', gettoken());
+                // formData["__RequestVerificationToken"] = token;  
+                $.ajax({
+                    url: '@Url.Action("CreateAsset", "Asset")',
+                    type: "POST",
+                    contentType: false, // Not to set any content header  
+                    processData: false, // Not to process data  
+                    data: fileData,                   
+                    success: function (result) {
+
+                    if (result.Status == 1) {
+                        let tableList = result.list;
+
+                        alert('Sucess');
+                                          
+                    }
+                    if (result.Status == 0) {
+                        let ErrorMessage = result.Error;
+                        $(document).Toasts('create', {
+                            class: 'bg-danger',
+                            title: 'Action',
+                            autohide: true,
+                            delay: 5000,
+                            subtitle: '',
+                            body: ErrorMessage
+                        })
+                    }
+                }
+            });
+            }
+        }
+
+        $("#btnCreateAsset").on("click", function (event) {
+            try {
+                createAsset();
+            }
+            catch (msg) { msg.message }
+        });
+
+
     </script>
 </body>
 </html>
