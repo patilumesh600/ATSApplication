@@ -8,7 +8,7 @@ namespace ATSApplication.ViewModels
 {
     public class Asset_VM
     {
-        public int ID { get; set; }
+        public Int64 ID { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }
         public string SerialNo { get; set; }
@@ -22,9 +22,9 @@ namespace ATSApplication.ViewModels
         public string ImagePath { get; set; }
         public bool IsActive { get; set; }
         public string OtherInfo { get; set; }
-        public int CreatedBy { get; set; }
+        public Int64 CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
-        public int ModifiedBy { get; set; }
+        public Int64 ModifiedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
     }
 }

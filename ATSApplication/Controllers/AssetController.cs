@@ -1,6 +1,7 @@
 ﻿using ATSApplication.Authorised;
 using ATSApplication.Common;
 using ATSApplication.Interfaces;
+using ATSApplication.ViewModels;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -38,10 +39,10 @@ namespace ATSApplication.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult CreateAsset()
         {
-            var inputProduct_VM = JObject.Parse(Request["AssetDetails"]);
+            var inputAsset_VM = JObject.Parse(Request["AssetDetails"]);
 
-            //Product_VM product_VM = new Product_VM();
-            //product_VM = inputProduct_VM.ToObject<Product_VM>();
+            Asset_VM asset_VM = new Asset_VM();
+            asset_VM = inputAsset_VM.ToObject<Asset_VM>();
             string fileNameWithPath = null;
             // JObject uploadResult = UploadProductImage(Request);
             if (Request.Files.Count > 0)
@@ -77,6 +78,11 @@ namespace ATSApplication.Controllers
                 System.IO.File.WriteAllBytes(fileNameWithPath, fileData);
                 //product_VM.ProductImage = strBase64Image;
                 //product_VM.ProductImageName = fileName;
+
+                var result = _assetService.AddOrUpdate(asset_VM);
+                var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+                jsonResult.MaxJsonLength = int.MaxValue;
+                //return jsonResult;
             }
             return View();
         }
