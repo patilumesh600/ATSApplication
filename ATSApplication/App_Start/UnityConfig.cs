@@ -18,6 +18,7 @@ namespace ATSApplication
             // e.g. container.RegisterType<ITestService, TestService>();
 
             container.RegisterType<ILoginService, LoginService>();
+            container.RegisterType<IAssetService, AssetService>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
