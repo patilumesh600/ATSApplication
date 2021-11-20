@@ -18,7 +18,7 @@ namespace ATSApplication.Services
             try
             {
                 string Encryptedpassword = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "SHA1");
-                var user = _db.ApplicationUser.Where(x => x.Name == username && x.Password == Encryptedpassword && x.IsActive == true).FirstOrDefault();
+                var user = _db.ApplicationUser.Where(x => (x.Name == username && x.Password == Encryptedpassword) ||(x.EmailID== username && x.Password == Encryptedpassword) && x.IsActive == true).FirstOrDefault();
                 return user;
             }
             catch (Exception ex)

@@ -15,8 +15,9 @@ namespace ATSApplication.Controllers
             _loginService = loginService;
         }
         // GET: Login
-        public ActionResult Index()
+        public ActionResult Index(string msg="")
         {
+            ViewBag.msg = msg;
             return View();
         }
 

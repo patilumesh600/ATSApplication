@@ -96,12 +96,12 @@
     <script src="~/Content/AdminLTE-3.1.0-rc/plugins/toastr/toastr.min.js"></script>
       <script>
         $(document).ready(function () {
-            var xx = @Html.Raw(Json.Encode(ViewBag.msg))
+            var xx = @Html.Raw(Json.Encode(ViewBag.msg));
             console.log(xx);
             if (xx != "") {
                 //swalmsg("Login Failed", "User Name or Password is incorrect", "warning", true);
                //alert("Login Failed", "User Name or Password is incorrect", "warning");
-                //toastr.error('User Name or Password is incorrect.')
+                toastr.error('User Name or Password is incorrect.')
             }
         })
     </script>
