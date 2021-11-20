@@ -1,0 +1,21 @@
+﻿#ajax-spinner {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 999999999999999;
+    overflow: auto;
+    -moz-opacity: 0.30;
+    opacity: 0.7
+}
+    /* top:50%;left:50%;*/
+
+    #ajax-spinner img {
+        background: none repeat scroll 0 0 #ffffff;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        vertical-align: middle;
+        z-index: 2147483647
+    }

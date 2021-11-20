@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Application </title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.1.0-rc/plugins/summernote/summernote-bs4.min.css">
+
+</head>
+<body>
+
+    <!-- Main Sidebar Container -->
+    @*<aside class="main-sidebar sidebar-light-primary elevation-4">*@
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="/Dashboard" class="brand-link navbar-pink">
+            <img src="~/Content/AdminLTE-3.1.0-rc/dist/img/AdminLTELogo.png" alt="ATS Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light"><b>ATS Application</b></span>
+        </a>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="~/Content/AdminLTE-3.1.0-rc/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Umesh Patil</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2" id="NavSideMenuBar">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+
+                    <li class="nav-item menu" id="dashboard" onclick="menuItemClick('dashboard','dashboard');">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item menu" id="assets">
+                        @*menu-open*@
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-laptop"></i>
+                            <p>
+                                Assests Master
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item" id="assetsList" onclick="menuItemClick('assets','assetsList');">
+                                <a href="#" class="nav-link">
+                                    @*active*@
+                                    <i class="nav-icon fas fa-list-alt"></i>
+                                    <p>Current Assets</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="createList" onclick="menuItemClick('assets','createList');">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-plus"></i>
+                                    <p>Create Assets</p>
+                                </a>
+                            </li>
+                            @*<li class="nav-item" id="allowcateList" onclick="menuItemClick('assets','allowcateList');">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-laptop"></i>
+                                    <p>Allowcate Assets</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="assetsStatus" onclick="menuItemClick('assets','assetsStatus');">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-warning"></i>
+                                    <p>Assets Status</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="assetsServices" onclick="menuItemClick('assets','assetsServices');">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-info"></i>
+                                    <p>Assets Services</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="assetsAudit" onclick="menuItemClick('assets','assetsAudit');">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-danger"></i>
+                                    <p>Assets Audit</p>
+                                </a>
+                            </li>*@
+                        </ul>
+                    </li>
+
+                    @*<li class="nav-item menu" id="company">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-building"></i>
+                                <p>
+                                    Manage Company
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item" id="companyList" onclick="menuItemClick('company','companyList');">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-list-alt nav-icon"></i>
+                                        <p>List Company</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="addCompany" onclick="menuItemClick('company','addCompany');">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-plus nav-icon"></i>
+                                        <p>Add Company</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="editCompany" onclick="menuItemClick('company','editCompany');">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-edit nav-icon"></i>
+                                        <p>Edit Company</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="disabledCompany" onclick="menuItemClick('company','disabledCompany');">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-trash nav-icon"></i>
+                                        <p>Disabled Company</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
+
+                    <li class="nav-item menu" id="employee">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                               User Master
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item" id="listEmployee" onclick="menuItemClick('employee','listEmployee');">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-list-alt nav-icon"></i>
+                                    <p>List Employee</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="addEmployee" onclick="menuItemClick('employee','addEmployee');">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-plus-circle nav-icon"></i>
+                                    <p>Add Employee</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="editEmployee" onclick="menuItemClick('employee','editEmployee');">
+                                <a href="./asset" class="nav-link">
+                                    <i class="fas fa-edit nav-icon"></i>
+                                    <p>Edit Employee</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="disbledEmployee" onclick="menuItemClick('employee','disbledEmployee');">
+                                <a href="./asset" class="nav-link">
+                                    <i class="fas fa-trash nav-icon"></i>
+                                    <p>Disabled Employee</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    @*<li class="nav-item">
+                        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                            <i class="fas fa-th-large"></i>
+                        </a>
+                    </li>*@
+
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    @RenderBody()
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2021 <a href="https://saidtechnologies.com/">Said Technologies Pvt. Ltd</a>.</strong>
+        All rights reserved.
+        @*<div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.1.0-rc
+            </div>*@
+    </footer>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>$.widget.bridge('uibutton', $.ui.button)</script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/moment/moment.min.js"></script>
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="~/Content/AdminLTE-3.1.0-rc/dist/js/pages/dashboard.js"></script>
+    <script src="~/Scripts/sideMenu.js"></script>
+
+    <script type="text/javascript">
+        function menuItemClick(mainMenuItemId, clickItemId) {
+            if (clickItemId == 'assetsList') {
+                window.location = '/Asset';
+            } else if (clickItemId == 'createList') {
+                window.location = '/Asset/Create';
+            } else if (clickItemId == 'dashboard') {
+                window.location = '/Dashboard';
+            } else {
+                window.location = '/Dashboard';
+            }
+
+            //Active color
+            $('.nav-link').removeClass("active");
+            $('.nav-item').removeClass("menu-is-opening").removeClass("menu-open");
+            $('.nav-treeview').css("display", "none");
+            $('#' + mainMenuItemId + ' .nav-treeview').css("display", "block");
+            $('#' + mainMenuItemId + ' a').first().addClass("active");
+            $('#' + mainMenuItemId).addClass("menu-is-opening");
+            $('#' + clickItemId + ' .nav-link').addClass("active");
+        }
+    </script>
+
+</body>
+</html>

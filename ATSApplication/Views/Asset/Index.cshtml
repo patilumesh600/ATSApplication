@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATS | Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0"> <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a> </h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Asset Master</a></li>
+                                <li class="breadcrumb-item active">Asset Dashboard</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header row" style="margin:0px;">
+                                    <div class="col-md-9"><h3 class="card-title"><b>Asset List</b></h3></div>
+                                    <div class="col-md-3"><button type="button" class="btn btn-block btn-outline-success" onclick="onCreateAsset()" style="width:70%;float:right;"><i class="fas fa-plus nav-icon"></i> Create Asset</button></div>
+
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>Asset Details</th>
+                                                @*<th>Asset Type</th>
+                                                    <th>Asset Name</th>
+                                                    <th>Asset Description</th>
+                                                    <th>Asset Serial No</th>
+                                                    <th>Asset Model</th>*@
+                                                <th>Asset Dates</th>
+                                                @*<th>Purchase Date</th>
+                                                    <th>Expiry Date</th>
+                                                    <th>Insurance Date</th>*@
+                                                <th>Company Details</th>
+                                                @*<th>Company Name</th>
+                                                    <th>Company Loaction</th>*@
+                                                <th>RFID Number</th>
+                                                <th>Action &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 10px">1.</td>
+                                                <td><b>Type:</b> Laptop<br /><b>Name:</b> Lenovo Laptop<br /><b>Serial No:</b> EHAS12345<br /><b>Model No:</b> Model123</td>
+                                                <td><b>Purchase Date:</b>01 Jan 2021<br /><b>Expiry Date:</b>01 Jan 2022<br /><b> Insurance Date:</b>08 Dec 2021</td>
+                                                <td><b>Company Name:</b> Lenovo<br /><b>Company Loaction:</b> Mumbai</td>
+                                                <td>RFID123</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                    <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                </td>
+                                            </tr>
+                                            @*<tr>
+                                                <td style="width: 10px">2.</td>
+                                                <td><b>Type:</b> Laptop<br /><b>Name:</b> Dell Laptop<br /><b>Serial No:</b> EHAS64534343<br /><b>Model No:</b> Model9565465</td>
+                                                <td><b>Purchase Date:</b>18 Feb 2021<br /><b>Expiry Date:</b>18 Feb 2022<br /><b>Insurance Date:</b>08 Oct 2021</td>
+                                                <td><b>Company Name:</b>Dell<br /><b>Company Loaction:</b>Pune</td>
+                                                <td>RFID456</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                    <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                </td>
+                                            </tr>*@
+                                            <tr>
+                                                <td style="width: 10px">2.</td>
+                                                <td><b>Type:</b> Laptop<br /><b>Name:</b> Asus Laptop <br /><b>Serial No:</b> EHAS6454545<br /><b> Model No:</b> Model935435</td>
+                                                <td><b>Purchase Date:</b>23 Mar 2021<br /><b>Expiry Date:</b>23 Mar 2022<br /><b>Insurance Date:</b>08 Jun 2021</td>
+                                                <td><b>Company Name:</b> Asus<br /><b>Company Loaction:</b> Chennai</td>
+                                                <td>RFID789</td>
+                                                <td>
+                                                    @*<div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                        </div>*@
+                                                    <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                    <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                                @*<div class="card-footer clearfix">
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>*@
+                            </div>
+                            <!-- /.card -->
+                        </div>
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            menuItemActive('assets', 'assetsList');
+        };
+        $('table').DataTable();
+        function onCreateAsset() {
+            window.location = '/Asset/Create';
+        }
+    </script>
+</body>
+</html>
