@@ -18,6 +18,7 @@ namespace ATSApplication.ViewModels
         public DateTime ExpiryDate { get; set; }
         public DateTime InsuranceDate { get; set; }
         public DateTime ServiceDueDate { get; set; }
+        public string CompanyName { get; set; }
         public string ImagePath { get; set; }
         public bool IsActive { get; set; }
         public string OtherInfo { get; set; }

@@ -42,13 +42,13 @@ namespace ATSApplication.Services
             }
         }
 
-        public string Delete(int ID)
+        public string Delete(int id)
         {
             try
             {
                 var mode = new SqlParameter("@Mode", "DELETE");
-                var Id = new SqlParameter("@Id", ID);
-                var result = _db.Database.SqlQuery<string>("exec SP_MANAGE_ASSET @Mode, @Id", mode, Id).FirstOrDefault();
+                var ID = new SqlParameter("@ID", id);
+                var result = _db.Database.SqlQuery<string>("exec SP_MANAGE_ASSET @Mode, @ID", mode, ID).FirstOrDefault();
                 return result;
             }
             catch (Exception ex)
