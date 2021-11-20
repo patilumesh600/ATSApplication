@@ -62,6 +62,11 @@ namespace ATSApplication.Services
             try
             {
                 var mode = new SqlParameter("@Mode", "INSERT");
+                if (Asset.ID > 0)
+                {
+                    mode = new SqlParameter("@Mode", "UPDATE");
+                }
+               
                 var ID = new SqlParameter("@ID", Asset.ID == null ? 0 : Asset.ID);
                 var Type= new SqlParameter("@Type", Asset.Type == null ? "" : Asset.Type);
                 var Name= new SqlParameter("@Name", Asset.Name == null ? "" : Asset.Name);
