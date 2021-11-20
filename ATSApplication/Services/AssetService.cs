@@ -81,7 +81,6 @@ namespace ATSApplication.Services
                 var ModifiedBy = new SqlParameter("@ModifiedBy", sessionUser == null ? 0 : sessionUser);
                 var ModifiedDate= new SqlParameter("@ModifiedDate", DateTime.Now);
 
-
                 var result = _db.Database.SqlQuery<string>("exec SP_MANAGE_ASSET @Mode,@ID,@Type,@Name,@SerialNo,@ModelNo,@ModelName,@PurchaseDate,@ExpiryDate,@InsuranceDate,@ServiceDueDate,@CompanyName,@ImagePath,@IsActive,@OtherInfo,@CreatedBy,@CreatedDate,@ModifiedBy,@ModifiedDate", mode, ID, Type, Name, SerialNo, ModelNo, ModelName, PurchaseDate, ExpiryDate, InsuranceDate, ServiceDueDate, CompanyName, ImagePath, IsActive, OtherInfo, CreatedBy, CreatedDate, ModifiedBy, ModifiedDate).FirstOrDefault();
                 return result;
             }

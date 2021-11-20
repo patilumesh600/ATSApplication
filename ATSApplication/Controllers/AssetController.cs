@@ -77,8 +77,8 @@ namespace ATSApplication.Controllers
 
                 String strBase64Image = Convert.ToBase64String(fileData);
                 System.IO.File.WriteAllBytes(fileNameWithPath, fileData);
-                //product_VM.ProductImage = strBase64Image;
-                //product_VM.ProductImageName = fileName;
+                asset_VM.ImagePath = fileNameWithPath;
+                asset_VM.IsActive = true;
 
                 var result = _assetService.AddOrUpdate(asset_VM);
                 var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
