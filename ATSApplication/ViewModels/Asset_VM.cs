@@ -8,6 +8,7 @@ namespace ATSApplication.ViewModels
 {
     public class Asset_VM
     {
+        public string Mode { get; set; }
         public Int64 ID { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }

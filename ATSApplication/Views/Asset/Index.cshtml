@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
+    <script src="~/Scripts/moment.js"></script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -59,29 +59,19 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <table summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
+                                    <table id="tblAssetList" summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
-                                                <th>Asset Details</th>
-                                                @*<th>Asset Type</th>
-                                                    <th>Asset Name</th>
-                                                    <th>Asset Description</th>
-                                                    <th>Asset Serial No</th>
-                                                    <th>Asset Model</th>*@
-                                                <th>Asset Dates</th>
-                                                @*<th>Purchase Date</th>
-                                                    <th>Expiry Date</th>
-                                                    <th>Insurance Date</th>*@
-                                                <th>Company Details</th>
-                                                @*<th>Company Name</th>
-                                                    <th>Company Loaction</th>*@
-                                                <th>RFID Number</th>
+                                                <th style="width: 210px;">Asset Details</th>
+                                                <th style="width: 210px;">Asset Dates</th>
+                                                <th style="width: 210px;">Company Details</th>
+                                                <th>RFID No</th>
                                                 <th>Action &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            @*<tr>
                                                 <td style="width: 10px">1.</td>
                                                 <td><b>Type:</b> Laptop<br /><b>Name:</b> Lenovo Laptop<br /><b>Serial No:</b> EHAS12345<br /><b>Model No:</b> Model123</td>
                                                 <td><b>Purchase Date:</b>01 Jan 2021<br /><b>Expiry Date:</b>01 Jan 2022<br /><b> Insurance Date:</b>08 Dec 2021</td>
@@ -89,20 +79,10 @@
                                                 <td>RFID123</td>
                                                 <td>
                                                     <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                                                    <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                    <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> Disabled </button>
                                                 </td>
                                             </tr>
-                                            @*<tr>
-                                                <td style="width: 10px">2.</td>
-                                                <td><b>Type:</b> Laptop<br /><b>Name:</b> Dell Laptop<br /><b>Serial No:</b> EHAS64534343<br /><b>Model No:</b> Model9565465</td>
-                                                <td><b>Purchase Date:</b>18 Feb 2021<br /><b>Expiry Date:</b>18 Feb 2022<br /><b>Insurance Date:</b>08 Oct 2021</td>
-                                                <td><b>Company Name:</b>Dell<br /><b>Company Loaction:</b>Pune</td>
-                                                <td>RFID456</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                                                    <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-trash nav-icon"></i> Disabled </button>
-                                                </td>
-                                            </tr>*@
+                                            
                                             <tr>
                                                 <td style="width: 10px">2.</td>
                                                 <td><b>Type:</b> Laptop<br /><b>Name:</b> Asus Laptop <br /><b>Serial No:</b> EHAS6454545<br /><b> Model No:</b> Model935435</td>
@@ -110,27 +90,16 @@
                                                 <td><b>Company Name:</b> Asus<br /><b>Company Loaction:</b> Chennai</td>
                                                 <td>RFID789</td>
                                                 <td>
-                                                    @*<div class="progress progress-xs">
-                                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                        </div>*@
-                                                    <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                                                    <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                    <button type="button" onclick="funBtnEditAsset(7)" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                    <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> Disabled </button>
                                                 </td>
-                                            </tr>
+                                            </tr>*@                                          
 
                                         </tbody>
+                                         
                                     </table>
                                 </div>
-                                <!-- /.card-body -->
-                                @*<div class="card-footer clearfix">
-                                    <ul class="pagination pagination-sm m-0 float-right">
-                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                                    </ul>
-                                </div>*@
+                               
                             </div>
                             <!-- /.card -->
                         </div>
@@ -153,11 +122,164 @@
     <script type="text/javascript">
         window.onload = function () {
             menuItemActive('assets', 'assetsList');
+            $("#tblAssetList tbody").empty();
+            fetchAssetList();           
         };
+
         $('table').DataTable();
+
+        function iterateRows(item, index) {
+            let status = 'InActive';
+            let statusMsg = 'Enabled';
+            if (item.IsActive) {
+                status = 'Active';
+                statusMsg = 'Disabled';
+            }
+            if (status === 'Active') {
+                $("#tblAssetList tbody").append(
+                    `      <tr>` +
+                    `      <td style="width: 10px">${index+1}</td>` +
+                    `      <td id="GridAssetDetails_${item.ID}"><b>Type:</b> ${item.Type}<br /><b>Name:</b> ${item.Name}<br /><b>Serial No:</b> ${item.SerialNo}<br /><b>Model No:</b> ${item.ModelNo}</td>` +
+                    `      <td id="GridAssetDates_${item.ID}"><b>Purchase Date:</b>${formatDate(item.PurchaseDate)}<br /><b>Expiry Date:</b>${formatDate(item.ExpiryDate)}<br /><b> Insurance Date:</b>${formatDate(item.InsuranceDate)}<br /><b> Service Due :</b>${formatDate(item.ServiceDueDate)}</td>` +
+
+                    `      <td id="GridCompanyDetails_${item.ID}"><b> Name:</b> ${item.CompanyName}<br /><b>Model Name:</b> ${item.ModelName}</td>` +
+                    `      <td id="GridRFID_${item.ID}">RFID${item.ID}</td>` +
+
+                    `      <td class="py-0 align-middle" style="text-align: center">` +
+                    `          <button type="button" class="btn btn-block btn-outline-success" onclick="funBtnEditAsset(${item.ID})" ><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>` +
+                    `          <button type="button" id="btnDisabled_${item.ID}" onclick="funOpenModalPopUp(${item.ID});"  class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> ${statusMsg} </button>` +
+                    `      </td>` +
+                    `  </tr>`
+                );
+            } else {
+                $("#tblAssetList tbody").append(
+                    `      <tr>` +
+                    `      <td style="width: 10px">${index+1}</td>` +
+                    `      <td id="GridAssetDetails_${item.ID}"><b>Type:</b> ${item.Type}<br /><b>Name:</b> ${item.Name}<br /><b>Serial No:</b> ${item.SerialNo}<br /><b>Model No:</b> ${item.ModelNo}</td>` +
+                    `      <td id="GridAssetDates_${item.ID}"><b>Purchase Date:</b>${formatDate(item.PurchaseDate)}<br /><b>Expiry Date:</b>${formatDate(item.ExpiryDate)}<br /><b> Insurance Date:</b>${formatDate(item.InsuranceDate)}<br /><b> Service Due :</b>${formatDate(item.ServiceDueDate)}</td>` +
+
+                    `      <td id="GridCompanyDetails_${item.ID}"><b>Company Name:</b> ${item.CompanyName}<br /><b>Model Name:</b> ${item.ModelName}</td>` +
+                    `      <td id="GridRFID_${item.ID}">RFID${item.ID}</td>` +
+
+                    `      <td class="py-0 align-middle" style="text-align: center">` +
+                    `          <button type="button" class="btn btn-block btn-outline-success" onclick="funBtnEditAsset(${item.ID})"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>` +
+                    `          <button type="button" id="btnEnabled_${item.ID}" onclick="funOpenModalPopUp(${item.ID});"  class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> ${statusMsg} </button>` +
+                    `      </td>` +
+                    `  </tr>`
+                );
+            };  
+
+            var disbaledOrEnabledAssetBtn = '';
+            if (status === 'Active') {
+                disbaledOrEnabledAssetBtn = '<button type="button" onclick="funDisbaledAsset('+ item.ID +'); " id="btn' + statusMsg + '_' + item.ID + ' " class="btn btn-primary">' + statusMsg + '</button>';
+            } else {
+                disbaledOrEnabledAssetBtn = '<button type="button" onclick="funEnabledAsset('+ item.ID +'); " id="btn' + statusMsg + '_' + item.ID + ' " class="btn btn-primary">' + statusMsg + '</button>';
+            }
+
+            $("#tblAssetList tbody").append(
+                ` <div class="modal fade" id="modal-default_${item.ID}">` +
+                `<div class="modal-dialog">` +
+                ` <div class="modal-content">` +
+                ` <div class="modal-header">` +
+                ` <h4 class="modal-title">${statusMsg} Asset</h4>` +
+                ` <button type="button" class="close" data-dismiss="modal" aria-label="Close">` +
+                ` <span aria-hidden="true">&times;</span>` +
+                ` </button>` +
+                ` </div>` +
+                ` <div class="modal-body">` +
+                ` Are you sure you want to ${statusMsg} asset?` +
+                ` </div>` +
+                ` <div class="modal-footer justify-content-between">` +
+                ` <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>` +
+                ` ${disbaledOrEnabledAssetBtn}` +
+                //` <button type="button" onclick="funDisbaledOrEnabledAsset(${item.ID,statusMsg});" id="btn${statusMsg}_${item.ID}" class="btn btn-primary">${statusMsg}</button>` +
+                ` </div>` +
+                ` </div>` +
+                ` </div>` +
+                ` </div >`
+            );
+        };
+        
+        function funOpenModalPopUp(aasetId) {
+            $('#modal-default_' + aasetId).modal();
+        }
+
+        function formatDate(date) {
+            return moment(date).format('DD-MMM-YYYY');
+        };
+
         function onCreateAsset() {
             window.location = '/Asset/Create';
         }
+
+        function fetchAssetList() {
+            $.ajax({
+                url: '@Url.Action("AssetList", "Asset")',
+                type: "Post",
+                dataType: "JSON",
+                async: false,
+                data: { dd: "GetData" },
+                success: function (data) {
+                    $("#tblAssetList tbody").empty();
+                    data.forEach(iterateRows);
+                }
+            });
+        }
+
+        function funEnabledAsset(aasetId) {  
+            $("#modal-default_" + aasetId + " .close").click();
+            $(".modal-backdrop").remove(); 
+            $('html, body').css({
+                overflow: 'auto',
+            });
+               $.ajax({
+                url: '@Url.Action("EnabledAsset", "Asset")',
+                type: "Post",
+                dataType: "JSON",
+                async: false,
+                data: { AssetId: aasetId },
+                success: function (data) {
+                    $(document).Toasts('create', {
+                        class: 'bg-success',
+                        title: 'Success',
+                        subtitle: '',
+                        body: 'Enabled asset successfully..!'
+                    });
+                    fetchAssetList();
+                }
+            });
+        }
+
+        function funDisbaledAsset(aasetId) { 
+            //$("body").removeClass("modal-backdrop");
+            $("#modal-default_" + aasetId + " .close").click();
+            $(".modal-backdrop").remove(); 
+            $('html, body').css({
+                overflow: 'auto',
+            });
+            $.ajax({
+                url: '@Url.Action("DisabledAsset", "Asset")',
+                type: "Post",
+                dataType: "JSON",
+                async: false,
+                data: { AssetId: aasetId },
+                success: function (data) {
+                    $(document).Toasts('create', {
+                        class: 'bg-success',
+                        title: 'Success',
+                        subtitle: '',
+                        body: 'Disabled asset successfully..!'
+                    });                  
+                    fetchAssetList();
+                }
+            });
+        }       
+
+        function funBtnEditAsset(asetId) {
+            localStorage.setItem('a', asetId);
+            window.location = '/Asset/Update';
+        }
+
     </script>
 </body>
 </html>

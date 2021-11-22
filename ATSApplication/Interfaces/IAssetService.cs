@@ -10,7 +10,9 @@ namespace ATSApplication.Interfaces
     public interface IAssetService
     {
         List<Asset_VM> GetAll();
-        string Delete(int ID);
+        Asset_VM GetAssetDetails(Int64 AssetId);
         string AddOrUpdate(Asset_VM Asset);
+        string EnabledAsset(Int64 AssetId);
+        string DisabledAsset(Int64 AssetId);
     }
 }

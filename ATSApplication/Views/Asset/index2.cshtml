@@ -1,304 +1,16 @@
 ﻿
 @{
-    ViewBag.Title = "index2";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<! DOCTYPE html>
-    <html lang="en">
-    <head>
-        <style>
-          body {min-height: 100vh;background-color: #FFE53B;background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 100%);}
-         .table {border-spacing: 0 0.85rem !important;}
-         .table .dropdown {display: inline-block;}
-         .table td{vertical-align: middle;margin-bottom: 10px;border: none;}
-         .table th {
-      vertical-align: middle;
-      margin-bottom: 10px;
-      border: none;
-    }
-    .table thead tr {
-      border: none;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: transparent;
-    }
-    .table thead th {
-      border: none;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: transparent;
-    }
-    .table td {
-      background: #fff;
-    }
-    .table td:first-child {
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-    }
-    .table td:last-child {
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-    .avatar {
-      width: 2.75rem;
-      height: 2.75rem;
-      line-height: 3rem;
-      border-radius: 50%;
-      display: inline-block;
-      background: transparent;
-      position: relative;
-      text-align: center;
-      color: #868e96;
-      font-weight: 700;
-      vertical-align: bottom;
-      font-size: 1rem;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    .avatar-sm {
-      width: 2.5rem;
-      height: 2.5rem;
-      font-size: 0.83333rem;
-      line-height: 1.5;
-    }
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-    }
-    .avatar-blue {
-      background-color: #c8d9f1;
-      color: #467fcf;
-    }
-    table.dataTable.dtr-inline.collapsed> tbody> tr[role="row"]> td:first-child:before,
-    table.dataTable.dtr-inline.collapsed> tbody> tr[role="row"]> th:first-child:before {top: 28px;left: 14px;border: none;box-shadow: none;}
-    table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child
-    {
-      padding-left: 48px;
-    }
-    table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
-      padding-left: 48px;
-    }
-    table.dataTable > tbody > tr.child ul.dtr-details {
-      width: 100%;
-    }
-    table.dataTable > tbody > tr.child span.dtr-title {
-      min-width: 50%;
-    }
-    table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
-    table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
-    table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
-      padding: 0.75rem 1rem 0.125rem;
-    }
-    div.dataTables_wrapper div.dataTables_length label,
-    div.dataTables_wrapper div.dataTables_filter label {
-      margin-bottom: 0;
-    }
-
-    .btn-icon {
-      background: #fff;
-    }
-    .btn-icon .bx {
-      font-size: 20px;
-    }
-    .btn .bx {
-      vertical-align: middle;
-      font-size: 20px;
-    }
-    .dropdown-menu {
-      padding: 0.25rem 0;
-    }
-    .dropdown-item {
-      padding: 0.5rem 1rem;
-    }
-    .badge {
-      padding: 0.5em 0.75em;
-    }
-    .badge-success-alt {
-      background-color: #d7f2c2;
-      color: #7bd235;
-    }
-    .table a {
-      color: #212529;
-    }
-    .table a:hover,
-    .table a:focus {
-      text-decoration: none;
-    }
-    table.dataTable {
-      margin-top: 12px !important;
-    }
-    .icon > .bx {
-      display: block;
-      min-width: 1.5em;
-      min-height: 1.5em;
-      text-align: center;
-      font-size: 1.0625rem;
-    }
-    .btn {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      padding: 0.5rem 0.75rem;
-    }
-    .avatar-blue {
-          background-color: #c8d9f1;
-          color: #467fcf;
-        }
-        .avatar-pink {
-          background-color: #fcd3e1;
-          color: #f66d9b;
-        }
-
-
-        </style>
-        <title> Bootstrap 4 Footer with Social icons </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-    </head>
-
-    <body>
-
-        <div class="container">
-            <div class="row py-5">
-                <div class="col-12">
-                    <table id="example" class="table table-hover responsive nowrap" style="width:100%">
-                        <thead>
-                            <h2> Bootstrap4 DataTable Example </h2>
-                            <tr>
-                                <th>Client Name</th>
-                                <th>Phone Number</th>
-                                <th>Profession</th>
-                                <th>Date of Birth</th>
-                                <th>App Access</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar avatar-blue mr-3">EB</div>
-
-                                            <div class="">
-                                                <p class="font-weight-bold mb-0"> Ram </p>
-                                                <p class="text-muted mb-0">ram@example.com</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>(784) 667 8768</td>
-                                <td>Designer</td>
-                                <td>09/04/1996</td>
-                                <td>
-                                    <div class="badge badge-success badge-success-alt">Enabled</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-sm btn-icon" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="bx bx-dots-horizontal-rounded" data-toggle="tooltip" data-placement="top"
-                                               title="Actions"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                            <a class="dropdown-item" href="#"><i class="bx bxs-pencil mr-2"></i> Edit Profile</a>
-                                            <a class="dropdown-item text-danger" href="#"><i class="bx bxs-trash mr-2"></i> Remove</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar avatar-pink mr-3">JR</div>
-                                            <div class="">
-                                                <p class="font-weight-bold mb-0">Richa</p>
-                                                <p class="text-muted mb-0">richa_89@example.com</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td> (937) 874 6878</td>
-                                <td> Banker</td>
-                                <td>13/01/1989</td>
-                                <td>
-                                    <div class="badge badge-success badge-success-alt">Enabled</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-sm btn-icon" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="bx bx-dots-horizontal-rounded" data-toggle="tooltip" data-placement="top"
-                                               title="Actions"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                            <a class="dropdown-item" href="#"><i class="bx bxs-pencil mr-2"></i> Edit Profile</a>
-                                            <a class="dropdown-item text-danger" href="#"><i class="bx bxs-trash mr-2"></i> Remove</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="container text-center">
-            <div class="row py-5">
-                <div class="col-12">
-
-                </div>
-            </div>
-        </div>
-        <script>
-
-            $(document).ready(function () {
-                $("#example").DataTable({
-                    aaSorting: [],
-                    responsive: true,
-                    columnDefs: [
-                        {
-                            responsivePriority: 1,
-                            targets: 0
-                        },
-                        {
-                            responsivePriority: 2,
-                            targets: -1
-                        }
-                    ]
-                });
-                $(".dataTables_filter input")
-                    .attr("placeholder", "Search here...")
-                    .css({
-                        width: "300px",
-                        display: "inline-block"
-                    });
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-        </script>
-    </body>
-    </html>*@
-
-
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> Bootstrap 4 datatable example </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATS | Dashboard</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -306,123 +18,319 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="~/Scripts/moment.js"></script>
+
 </head>
-<style>
-    body {
-        margin: 0;
-        min-height: 100vh;
-        padding: 0;
-        background-color: var(--clr-light);
-        color: var(--clr-black);
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.125rem;
-        justify-content: center;
-        align-items: center;
-    }
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
 
-    h2 {
-        font-family: 'Indie Flower', cursive;
-        font-size: 32px;
-        color: #03A9F4;
-        font-weight: bold;
-        text-align: center;
-        padding: 20px 0;
-    }
-
-    table caption {
-        padding: .5em 0;
-    }
-
-    table.dataTable th {
-        white-space: nowrap;
-    }
-
-    table.dataTable td {
-        white-space: nowrap;
-    }
-
-    .p {
-        text-align: center;
-        padding-top: 140px;
-        font-size: 14px;
-    }
-</style>
-<body>
-    <h2> Bootstrap4 DataTable Example </h2>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <table summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
-                    <thead>
-                        <tr>
-                            <th> State </th>
-                            <th> Languages </th>
-                            <th> Population </th>
-                            <th> Median Age </th>
-                            <th> Area (Km?)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> Mumbai </td>
-                            <td> Native </td>
-                            <td> 23,630,169 </td>
-                            <td> 37.3 </td>
-                            <td> 7,739,983 </td>
-                        </tr>
-                        <tr>
-                            <td> Andhra Pradesh </td>
-                            <td> English, Hindi </td>
-                            <td> 41,803,125</td>
-                            <td> 31.3 </td>
-                            <td> 2,780,387 </td>
-                        </tr>
-                        <tr>
-                            <td> Himachal Pradesh </td>
-                            <td> English 79%, native and other languages </td>
-                            <td> 23,630,169 </td>
-                            <td> 37.3 </td>
-                            <td> 7,739,983 </td>
-                        </tr>
-                        <tr>
-                            <td> Gwalier </td>
-                            <td> Hindi </td>
-                            <td> 11,128,40 </td>
-                            <td> 43.2 </td>
-                            <td> 131,956 </td>
-                        </tr>
-                        <tr>
-                            <td> Ludhiana </td>
-                            <td> Panjabi </td>
-                            <td> 23,630,169 </td>
-                            <td> 37.3 </td>
-                            <td> 7,739,983 </td>
-                        </tr>
-                        <tr>
-                            <td> Goa </td>
-                            <td> native </td>
-                            <td> 41,803,125</td>
-                            <td> 31.3 </td>
-                            <td> 2,780,387 </td>
-                        </tr>
-                        <tr>
-                            <td> Mumbai </td>
-                            <td> Native </td>
-                            <td> 23,630,169 </td>
-                            <td> 37.3 </td>
-                            <td> 7,739,983 </td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-
-                    </tfoot>
-                </table>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0"> <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a> </h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Asset Master</a></li>
+                                <li class="breadcrumb-item active">Asset Dashboard</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header row" style="margin:0px;">
+                                    <div class="col-md-9"><h3 class="card-title"><b>Asset List</b></h3></div>
+                                    <div class="col-md-3"><button type="button" class="btn btn-block btn-outline-success" onclick="onCreateAsset()" style="width:70%;float:right;"><i class="fas fa-plus nav-icon"></i> Create Asset</button></div>
+
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="tblAssetList" summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>Asset Details</th>
+                                                @*<th>Asset Type</th>
+                                                    <th>Asset Name</th>
+                                                    <th>Asset Description</th>
+                                                    <th>Asset Serial No</th>
+                                                    <th>Asset Model</th>*@
+                                                <th>Asset Dates</th>
+                                                @*<th>Purchase Date</th>
+                                                    <th>Expiry Date</th>
+                                                    <th>Insurance Date</th>*@
+                                                <th>Company Details</th>
+                                                @*<th>Company Name</th>
+                                                    <th>Company Loaction</th>*@
+                                                <th>RFID Number</th>
+                                                <th>Action &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 10px">1.</td>
+                                                <td><b>Type:</b> Laptop<br /><b>Name:</b> Lenovo Laptop<br /><b>Serial No:</b> EHAS12345<br /><b>Model No:</b> Model123</td>
+                                                <td><b>Purchase Date:</b>01 Jan 2021<br /><b>Expiry Date:</b>01 Jan 2022<br /><b> Insurance Date:</b>08 Dec 2021</td>
+                                                <td><b>Company Name:</b> Lenovo<br /><b>Company Loaction:</b> Mumbai</td>
+                                                <td>RFID123</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                    <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                </td>
+                                            </tr>
+                                            @*<tr>
+                                                    <td style="width: 10px">2.</td>
+                                                    <td><b>Type:</b> Laptop<br /><b>Name:</b> Dell Laptop<br /><b>Serial No:</b> EHAS64534343<br /><b>Model No:</b> Model9565465</td>
+                                                    <td><b>Purchase Date:</b>18 Feb 2021<br /><b>Expiry Date:</b>18 Feb 2022<br /><b>Insurance Date:</b>08 Oct 2021</td>
+                                                    <td><b>Company Name:</b>Dell<br /><b>Company Loaction:</b>Pune</td>
+                                                    <td>RFID456</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                        <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                    </td>
+                                                </tr>*@
+                                            <tr>
+                                                <td style="width: 10px">2.</td>
+                                                <td><b>Type:</b> Laptop<br /><b>Name:</b> Asus Laptop <br /><b>Serial No:</b> EHAS6454545<br /><b> Model No:</b> Model935435</td>
+                                                <td><b>Purchase Date:</b>23 Mar 2021<br /><b>Expiry Date:</b>23 Mar 2022<br /><b>Insurance Date:</b>08 Jun 2021</td>
+                                                <td><b>Company Name:</b> Asus<br /><b>Company Loaction:</b> Chennai</td>
+                                                <td>RFID789</td>
+                                                <td>
+                                                    @*<div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                        </div>*@
+                                                    <button type="button" onclick="funBtnEditAsset(7)" class="btn btn-block btn-outline-success"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                    <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> Disabled </button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+                                        @*<div class="modal fade" id="modal-default">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Disabled Asset</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Are you sure you want to disabled asset?</p>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            <button type="button" onclick="funDisbaledAsset(1);" id="btnDisabled_1" class="btn btn-primary">Disabled</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>*@
+
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                                @*<div class="card-footer clearfix">
+                                        <ul class="pagination pagination-sm m-0 float-right">
+                                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                        </ul>
+                                    </div>*@
+                            </div>
+                            <!-- /.card -->
+                        </div>
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
         </div>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+
     </div>
-    <script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            menuItemActive('assets', 'assetsList');
+            fetchAssetList();
+        };
+
         $('table').DataTable();
+
+        function iterateRows(item, index) {
+            let status = 'InActive';
+            let statusMsg = 'Enabled';
+            if (item.IsActive) {
+                status = 'Active';
+                statusMsg = 'Disabled';
+            }
+            if (status === 'Active') {
+                $("#tblAssetList tbody").append(
+                    `      <tr>` +
+                    `      <td style="width: 10px">${index+1}</td>` +
+                    `      <td id="GridAssetDetails_${item.ID}"><b>Type:</b> ${item.Type}<br /><b>Name:</b> ${item.Name}<br /><b>Serial No:</b> ${item.SerialNo}<br /><b>Model No:</b> ${item.ModelNo}</td>` +
+                    `      <td id="GridAssetDates_${item.ID}"><b>Purchase Date:</b>${formatDate(item.PurchaseDate)}<br /><b>Expiry Date:</b>${formatDate(item.ExpiryDate)}<br /><b> Insurance Date:</b>${formatDate(item.InsuranceDate)}<br /><b> Service Due :</b>${formatDate(item.ServiceDueDate)}</td>` +
+
+                    `      <td id="GridCompanyDetails_${item.ID}"><b>Company Name:</b> ${item.CompanyName}<br /><b>Model Name:</b> ${item.ModelName}</td>` +
+                    `      <td id="GridRFID_${item.ID}">RFID${item.ID}</td>` +
+
+                    `      <td class="py-0 align-middle" style="text-align: center">` +
+                    `          <button type="button" class="btn btn-block btn-outline-success" onclick="funBtnEditAsset(${item.ID})" ><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>` +
+                    `          <button type="button" id="btnDisabled_${item.ID}" onclick="funOpenModalPopUp(${item.ID});"  class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> ${statusMsg} </button>` +
+                    `      </td>` +
+                    `  </tr>`
+                );
+            } else {
+                $("#tblAssetList tbody").append(
+                    `      <tr>` +
+                    `      <td style="width: 10px">${index+1}</td>` +
+                    `      <td id="GridAssetDetails_${item.ID}"><b>Type:</b> ${item.Type}<br /><b>Name:</b> ${item.Name}<br /><b>Serial No:</b> ${item.SerialNo}<br /><b>Model No:</b> ${item.ModelNo}</td>` +
+                    `      <td id="GridAssetDates_${item.ID}"><b>Purchase Date:</b>${formatDate(item.PurchaseDate)}<br /><b>Expiry Date:</b>${formatDate(item.ExpiryDate)}<br /><b> Insurance Date:</b>${formatDate(item.InsuranceDate)}<br /><b> Service Due :</b>${formatDate(item.ServiceDueDate)}</td>` +
+
+                    `      <td id="GridCompanyDetails_${item.ID}"><b>Company Name:</b> ${item.CompanyName}<br /><b>Model Name:</b> ${item.ModelName}</td>` +
+                    `      <td id="GridRFID_${item.ID}">RFID${item.ID}</td>` +
+
+                    `      <td class="py-0 align-middle" style="text-align: center">` +
+                    `          <button type="button" class="btn btn-block btn-outline-success" onclick="funBtnEditAsset(${item.ID})"><i class="fas fa-edit nav-icon"></i> &nbsp;Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>` +
+                    `          <button type="button" id="btnEnabled_${item.ID}" onclick="funOpenModalPopUp(${item.ID});"  class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash nav-icon"></i> ${statusMsg} </button>` +
+                    `      </td>` +
+                    `  </tr>`
+                );
+            };
+
+            var disbaledOrEnabledAssetBtn = '';
+            if (status === 'Active') {
+                disbaledOrEnabledAssetBtn = '<button type="button" onclick="funDisbaledAsset('+ item.ID +'); " id="btn' + statusMsg + '_' + item.ID + ' " class="btn btn-primary">' + statusMsg + '</button>';
+            } else {
+                disbaledOrEnabledAssetBtn = '<button type="button" onclick="funEnabledAsset('+ item.ID +'); " id="btn' + statusMsg + '_' + item.ID + ' " class="btn btn-primary">' + statusMsg + '</button>';
+            }
+
+            $("#tblAssetList tbody").append(
+                ` <div class="modal fade" id="modal-default_${item.ID}">` +
+                `<div class="modal-dialog">` +
+                ` <div class="modal-content">` +
+                ` <div class="modal-header">` +
+                ` <h4 class="modal-title">${statusMsg} Asset</h4>` +
+                ` <button type="button" class="close" data-dismiss="modal" aria-label="Close">` +
+                ` <span aria-hidden="true">&times;</span>` +
+                ` </button>` +
+                ` </div>` +
+                ` <div class="modal-body">` +
+                ` Are you sure you want to ${statusMsg} asset?` +
+                ` </div>` +
+                ` <div class="modal-footer justify-content-between">` +
+                ` <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>` +
+                ` ${disbaledOrEnabledAssetBtn}` +
+                //` <button type="button" onclick="funDisbaledOrEnabledAsset(${item.ID,statusMsg});" id="btn${statusMsg}_${item.ID}" class="btn btn-primary">${statusMsg}</button>` +
+                ` </div>` +
+                ` </div>` +
+                ` </div>` +
+                ` </div >`
+            );
+        };
+
+        function funOpenModalPopUp(aasetId) {
+            $('#modal-default_' + aasetId).modal();
+        }
+
+        function formatDate(date) {
+            return moment(date).format('DD-MMM-YYYY');
+        };
+
+        function onCreateAsset() {
+            window.location = '/Asset/Create';
+        }
+
+        function fetchAssetList() {
+            $.ajax({
+                url: '@Url.Action("AssetList", "Asset")',
+                type: "Post",
+                dataType: "JSON",
+                async: false,
+                data: { dd: "GetData" },
+                success: function (data) {
+                    $("#tblAssetList tbody").empty();
+                    data.forEach(iterateRows);
+                }
+            });
+        }
+
+        function funEnabledAsset(aasetId) {
+            $("#modal-default_" + aasetId + " .close").click();
+            $(".modal-backdrop").remove();
+            $('html, body').css({
+                overflow: 'auto',
+            });
+               $.ajax({
+                url: '@Url.Action("EnabledAsset", "Asset")',
+                type: "Post",
+                dataType: "JSON",
+                async: false,
+                data: { AssetId: aasetId },
+                success: function (data) {
+                    $(document).Toasts('create', {
+                        class: 'bg-success',
+                        title: 'Success',
+                        subtitle: '',
+                        body: 'Enabled asset successfully..!'
+                    });
+                    fetchAssetList();
+                }
+            });
+        }
+
+        function funDisbaledAsset(aasetId) {
+            //$("body").removeClass("modal-backdrop");
+            $("#modal-default_" + aasetId + " .close").click();
+            $(".modal-backdrop").remove();
+            $('html, body').css({
+                overflow: 'auto',
+            });
+            $.ajax({
+                url: '@Url.Action("DisabledAsset", "Asset")',
+                type: "Post",
+                dataType: "JSON",
+                async: false,
+                data: { AssetId: aasetId },
+                success: function (data) {
+                    $(document).Toasts('create', {
+                        class: 'bg-success',
+                        title: 'Success',
+                        subtitle: '',
+                        body: 'Disabled asset successfully..!'
+                    });
+                    fetchAssetList();
+                }
+            });
+        }
+
+        function funBtnEditAsset(asetId) {
+            localStorage.setItem('a', asetId);
+            window.location = '/Asset/Update';
+        }
+
     </script>
 </body>
-</html>  
+</html>

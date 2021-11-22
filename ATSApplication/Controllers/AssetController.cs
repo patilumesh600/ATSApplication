@@ -36,9 +36,14 @@ namespace ATSApplication.Controllers
             return View();
         }
 
+        public ActionResult Update()
+        {
+            return View();
+        }
+
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult CreateAsset()
+        public JsonResult CreateAssetOrUpdateAsset()
         {
             var inputAsset_VM = JObject.Parse(Request["AssetDetails"]);
 
@@ -79,21 +84,55 @@ namespace ATSApplication.Controllers
                 System.IO.File.WriteAllBytes(fileNameWithPath, fileData);
                 asset_VM.ImagePath = fileNameWithPath;
                 asset_VM.IsActive = true;
-
-                var result = _assetService.AddOrUpdate(asset_VM);
-                var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
-                jsonResult.MaxJsonLength = int.MaxValue;
-                //return jsonResult;
             }
-            return View();
+
+            var result = _assetService.AddOrUpdate(asset_VM);
+            var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
-        public JsonResult List()
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public JsonResult GetAssetDetails()
+        {
+            Int64 AssetId = Convert.ToInt64(Request["AssetId"]);
+            var result = _assetService.GetAssetDetails(AssetId);
+            var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public JsonResult AssetList(string dd)
         {
             var result = _assetService.GetAll();
             var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public JsonResult EnabledAsset()
+        {
+            Int64 AssetId = Convert.ToInt64(Request["AssetId"]);
+            var result = _assetService.EnabledAsset(AssetId);
+            var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public JsonResult DisabledAsset()
+        {
+            Int64 AssetId = Convert.ToInt64(Request["AssetId"]);
+            var result = _assetService.DisabledAsset(AssetId);
+            var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }       
     }
 }

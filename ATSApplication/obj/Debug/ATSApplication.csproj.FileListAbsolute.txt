@@ -192,3 +192,4 @@ D:\Projects\ATSApplication\ATSApplication\ATSApplication\bin\Microsoft.CodeDom.P
 D:\Projects\ATSApplication\ATSApplication\ATSApplication\obj\Debug\ATSApplication.csprojResolveAssemblyReference.cache
 D:\Projects\ATSApplication\ATSApplication\ATSApplication\obj\Debug\ATSApplication.dll
 D:\Projects\ATSApplication\ATSApplication\ATSApplication\obj\Debug\ATSApplication.pdb
+D:\Work\ATSApplication\Git\ATSApplication\ATSApplication\obj\Debug\ATSApplication.csprojAssemblyReference.cache

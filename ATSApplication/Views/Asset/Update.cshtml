@@ -1,9 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +41,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Asset Master</a></li>
-                                <li class="breadcrumb-item active">Create Asset</li>
+                                <li class="breadcrumb-item active">Update Asset</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -59,7 +58,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header row" style="margin:0px;">
-                                    <div class="col-md-9"><h3 class="card-title"><b>Create Asset</b></h3></div>
+                                    <div class="col-md-9"><h3 class="card-title"><b>Update Asset</b></h3></div>
                                     <div class="col-md-3"></div>
                                 </div>
                                 <!-- /.card-header -->
@@ -106,16 +105,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="display:none;">
                                                         <label for="deviceImage">Device Image</label>
                                                         <div class="input-group">
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input" id="deviceImage">
                                                                 <label class="custom-file-label" for="deviceImage">Choose Device Image file</label>
                                                             </div>
-                                                            @*<div class="input-group-append">
-                                                                <span class="input-group-text">Upload</span>
-                                                            </div>*@
                                                         </div>
                                                     </div>
 
@@ -160,7 +156,7 @@
                                         </div>
 
                                         <div class="card-footer">
-                                            <button type="button" id="btnCreateAsset" onclick="fuBtnCreateAssetOnclcik();" class="btn btn-primary">Create</button>
+                                            <button type="button" id="btnUpdateAsset" onclick="fuBtnUpdateAssetOnclcik();" class="btn btn-primary">Update</button>
                                             <button type="button" class="btn btn-default" onclick="funBtnCancelClick();">Cancel</button>
                                         </div>
                                     </form>
@@ -201,7 +197,32 @@
                 $(this.attributes["data-target"].value +' .input-group-text').click();
             });
 
+            var selectedAssetID = localStorage.getItem('a');
+            $("#assetID").val(selectedAssetID);
+            funGetAssetDetails(selectedAssetID);
         };
+
+        function funGetAssetDetails(selectedAssetID) {
+             $.ajax({
+                url: '@Url.Action("GetAssetDetails", "Asset")',
+                type: "Post",
+                dataType: "JSON",
+                async: false,
+                data: { AssetId: selectedAssetID },
+                 success: function (data) {
+                     $("#ddlAssetType").val(data.Type);
+                     $("#assetName").val(data.Name);
+                     $("#serialNumber").val(data.SerialNo);
+                     $("#purchasedate").find("input").val(formatDate(data.PurchaseDate));
+                     $("#insurancedate").find("input").val(formatDate(data.InsuranceDate));
+                     $("#modelName").val(data.ModelName);
+                     $("#companyName").val(data.CompanyName);
+                     $("#modelNumber").val(data.ModelNo);
+                     $("#expirydate").find("input").val(formatDate(data.ExpiryDate));
+                     $("#serviceDuedate").find("input").val(formatDate(data.ServiceDueDate));
+                }
+            });
+        }
 
         function gettoken() {
             var token = '@Html.AntiForgeryToken()';
@@ -218,7 +239,7 @@
             }
         }
 
-        function ValidateCreateAsset() {
+        function ValidateUpdateAsset() {
             let isValid = true;
             let Name = $("#Name").val();
             if (ValidateAllEmptyConditonForText(Name) == true) {
@@ -227,7 +248,7 @@
             } else {
                 $("#error_Name").hide();
             }
-            
+
             let Status = $('input[name="rdo_status"]:checked').val();
 
             if (ValidateAllEmptyConditonForText(Status) == true) {
@@ -237,18 +258,16 @@
             return isValid;
         }
 
-        function createAsset() {
+        function updateAsset() {
             let isValid = true;
-            // let isValid = ValidateCreateAsset();
+            // let isValid = ValidateUpdatesset();
             if (isValid) {
-                // let id = $("#assetID").val();
-                let id = 0;
+                let id = localStorage.getItem('a');
                 let mode = "CREATE";
                 let msg = "Created";
                 if (parseInt(id) > 0) {
                     mode = "UPDATE";
-                    // id = parseInt(id);
-                    id = 0;
+                    id = parseInt(id);
                     msg = "Updated";
                 } else {
                     id = 0;
@@ -281,21 +300,21 @@
 
                 var fileUpload = $("#deviceImage").get(0);
                 var files = fileUpload.files;
-                // Create FormData object  
+                // Create FormData object
                 var fileData = new FormData();
-                // Looping over all files and add it to FormData object  
+                // Looping over all files and add it to FormData object
                 for (var i = 0; i < files.length; i++) {
                     fileData.append(files[i].name, files[i]);
                 }
-                // Adding one more key to FormData object  
+                // Adding one more key to FormData object
                 fileData.append('AssetDetails', JSON.stringify(assetDetails));
                 // formData.append('__RequestVerificationToken', gettoken());
-                // formData["__RequestVerificationToken"] = token;  
+                // formData["__RequestVerificationToken"] = token;
                 $.ajax({
                     url: '@Url.Action("CreateAssetOrUpdateAsset", "Asset")',
                     type: "POST",
-                    contentType: false, // Not to set any content header  
-                    processData: false, // Not to process data  
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
                     data: fileData,
                     success: function (result) {
                         if (result) {
@@ -304,7 +323,7 @@
                                 title: 'Success',
                                 subtitle: '',
                                 // body: result.SuccessMessage
-                                body: 'Create asset successfully..! Please wait we are going to asset list'
+                                body: 'Update asset successfully..! Please wait we are going to asset list'
                             });
                             setTimeout(function () {
                                 window.location = '/Asset/Index';
@@ -323,11 +342,11 @@
                     }
                 });
             }
-        }        
+        }
 
-        function fuBtnCreateAssetOnclcik() {
+        function fuBtnUpdateAssetOnclcik() {
             try {
-                createAsset();
+                updateAsset();
             }
             catch (msg) { msg.message }
         }
@@ -335,6 +354,10 @@
         function funBtnCancelClick() {
             window.location = '/Asset/Index/';
         }
+
+        function formatDate(date) {
+            return moment(date).format('DD-MMM-YYYY');
+        };
 
     </script>
 </body>

@@ -42,18 +42,19 @@ namespace ATSApplication.Services
             }
         }
 
-        public string Delete(int id)
+        public Asset_VM GetAssetDetails(Int64 AssetId)
         {
             try
             {
-                var mode = new SqlParameter("@Mode", "DELETE");
-                var ID = new SqlParameter("@ID", id);
-                var result = _db.Database.SqlQuery<string>("exec SP_MANAGE_ASSET @Mode, @ID", mode, ID).FirstOrDefault();
+                var mode = new SqlParameter("@Mode", "GET_ASSET_DETAILS");
+                var ID = new SqlParameter("@ID", AssetId);
+                var result = _db.Database.SqlQuery<Asset_VM>("exec SP_MANAGE_ASSET @Mode, @ID", mode, ID).FirstOrDefault();
                 return result;
             }
             catch (Exception ex)
             {
-                return "An Error Occured Contact Service Administrator...!";
+                Asset_VM blankAssetDetails = new Asset_VM();
+                return blankAssetDetails;
             }
         }
 
@@ -66,25 +67,25 @@ namespace ATSApplication.Services
                 {
                     mode = new SqlParameter("@Mode", "UPDATE");
                 }
-               
-                var ID = new SqlParameter("@ID", Asset.ID == null ? 0 : Asset.ID);
-                var Type= new SqlParameter("@Type", Asset.Type == null ? "" : Asset.Type);
-                var Name= new SqlParameter("@Name", Asset.Name == null ? "" : Asset.Name);
-                var SerialNo= new SqlParameter("@SerialNo", Asset.SerialNo == null ? "" : Asset.SerialNo);
-                var ModelNo= new SqlParameter("@ModelNo", Asset.ModelNo == null ? "" : Asset.ModelNo);
-                var ModelName= new SqlParameter("@ModelName", Asset.ModelName == null ? "" : Asset.ModelName);
-                var PurchaseDate= new SqlParameter("@PurchaseDate", Asset.PurchaseDate == null ? DateTime.Now : Asset.PurchaseDate);
-                var ExpiryDate= new SqlParameter("@ExpiryDate", Asset.ExpiryDate == null ? DateTime.Now : Asset.ExpiryDate);
-                var InsuranceDate= new SqlParameter("@InsuranceDate", Asset.InsuranceDate == null ? DateTime.Now : Asset.InsuranceDate);
-                var ServiceDueDate= new SqlParameter("@ServiceDueDate", Asset.ServiceDueDate == null ? DateTime.Now : Asset.ServiceDueDate);
-                var CompanyName= new SqlParameter("@CompanyName", Asset.CompanyName == null ? "" : Asset.CompanyName);
-                var ImagePath= new SqlParameter("@ImagePath", Asset.ImagePath == null ? "" : Asset.ImagePath);
-                var IsActive= new SqlParameter("@IsActive", Asset.IsActive);
-                var OtherInfo= new SqlParameter("@OtherInfo", Asset.OtherInfo == null ? "" : Asset.OtherInfo);
-                var CreatedBy= new SqlParameter("@CreatedBy", sessionUser == null ? 0 : sessionUser);
-                var CreatedDate= new SqlParameter("@CreatedDate", DateTime.Now);
+
+                var ID = new SqlParameter("@Id", Asset.ID == null ? 0 : Asset.ID);
+                var Type = new SqlParameter("@Type", Asset.Type == null ? "" : Asset.Type);
+                var Name = new SqlParameter("@Name", Asset.Name == null ? "" : Asset.Name);
+                var SerialNo = new SqlParameter("@SerialNo", Asset.SerialNo == null ? "" : Asset.SerialNo);
+                var ModelNo = new SqlParameter("@ModelNo", Asset.ModelNo == null ? "" : Asset.ModelNo);
+                var ModelName = new SqlParameter("@ModelName", Asset.ModelName == null ? "" : Asset.ModelName);
+                var PurchaseDate = new SqlParameter("@PurchaseDate", Asset.PurchaseDate == null ? DateTime.Now : Asset.PurchaseDate);
+                var ExpiryDate = new SqlParameter("@ExpiryDate", Asset.ExpiryDate == null ? DateTime.Now : Asset.ExpiryDate);
+                var InsuranceDate = new SqlParameter("@InsuranceDate", Asset.InsuranceDate == null ? DateTime.Now : Asset.InsuranceDate);
+                var ServiceDueDate = new SqlParameter("@ServiceDueDate", Asset.ServiceDueDate == null ? DateTime.Now : Asset.ServiceDueDate);
+                var CompanyName = new SqlParameter("@CompanyName", Asset.CompanyName == null ? "" : Asset.CompanyName);
+                var ImagePath = new SqlParameter("@ImagePath", Asset.ImagePath == null ? "" : Asset.ImagePath);
+                var IsActive = new SqlParameter("@IsActive", Asset.IsActive);
+                var OtherInfo = new SqlParameter("@OtherInfo", Asset.OtherInfo == null ? "" : Asset.OtherInfo);
+                var CreatedBy = new SqlParameter("@CreatedBy", sessionUser == null ? 0 : sessionUser);
+                var CreatedDate = new SqlParameter("@CreatedDate", DateTime.Now);
                 var ModifiedBy = new SqlParameter("@ModifiedBy", sessionUser == null ? 0 : sessionUser);
-                var ModifiedDate= new SqlParameter("@ModifiedDate", DateTime.Now);
+                var ModifiedDate = new SqlParameter("@ModifiedDate", DateTime.Now);
 
                 var result = _db.Database.SqlQuery<string>("exec SP_MANAGE_ASSET @Mode,@ID,@Type,@Name,@SerialNo,@ModelNo,@ModelName,@PurchaseDate,@ExpiryDate,@InsuranceDate,@ServiceDueDate,@CompanyName,@ImagePath,@IsActive,@OtherInfo,@CreatedBy,@CreatedDate,@ModifiedBy,@ModifiedDate", mode, ID, Type, Name, SerialNo, ModelNo, ModelName, PurchaseDate, ExpiryDate, InsuranceDate, ServiceDueDate, CompanyName, ImagePath, IsActive, OtherInfo, CreatedBy, CreatedDate, ModifiedBy, ModifiedDate).FirstOrDefault();
                 return result;
@@ -94,5 +95,35 @@ namespace ATSApplication.Services
                 return "An Error Occured Contact Service Administrator...!";
             }
         }
+
+        public string EnabledAsset(Int64 AssetId)
+        {
+            try
+            {
+                var mode = new SqlParameter("@Mode", "ENABLED");
+                var ID = new SqlParameter("@ID", AssetId);
+                var result = _db.Database.SqlQuery<string>("exec SP_MANAGE_ASSET @Mode, @ID", mode, ID).FirstOrDefault();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return "An Error Occured Contact Service Administrator...!";
+            }
+        }
+
+        public string DisabledAsset(Int64 AssetId)
+        {
+            try
+            {
+                var mode = new SqlParameter("@Mode", "DISABLED");
+                var ID = new SqlParameter("@ID", AssetId);
+                var result = _db.Database.SqlQuery<string>("exec SP_MANAGE_ASSET @Mode, @ID", mode, ID).FirstOrDefault();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return "An Error Occured Contact Service Administrator...!";
+            }
+        }        
     }
 }
